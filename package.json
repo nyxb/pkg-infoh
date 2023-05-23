@@ -1,0 +1,51 @@
+{
+  "name": "pkg-infoh",
+  "version": "0.0.1",
+  "description": "📦 Retrieve details of local packages",
+  "author": "Dennis Ollhoff <contact@nyxb.xyz>",
+  "license": "MIT",
+  "hompage": "https://💻nyxb.ws",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyxb/pkg-infoh.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nyxb/pkg-infoh/issues"
+  },
+  "sideEffects": false,
+  "main": "index.cjs",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "require": "./index.cjs",
+      "import": "./index.mjs"
+    }
+  },
+  "scripts": {
+    "prepublishOnly": "nyxr build",
+    "build": "tsup shared.ts --format esm,cjs --dts && dynot scripts/postbuild.ts",
+    "lint": "eslint .",
+    "release": "nyxlx changelogen@latest --release && pnpm publish",
+    "test": "node test/cjs.cjs && node test/esm.mjs"
+  },
+  "devDependencies": {
+    "@nyxb/eslint-config": "^0.0.53",
+    "@nyxb/nyxi": "^0.0.30",
+    "@nyxb/utils": "^0.0.3",
+    "@types/chai": "^4.3.4",
+    "@types/node": "^18.11.18",
+    "chai": "^4.3.7",
+    "dynot": "^0.1.8",
+    "eslint": "^8.41.0",
+    "find-up": "^6.3.0",
+    "nyxjson": "^0.0.3",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4"
+  },
+  "files": [],
+  "keywords": [
+    "package"
+  ]
+}
